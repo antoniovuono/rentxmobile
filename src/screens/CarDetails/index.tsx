@@ -1,6 +1,16 @@
 import React from 'react';
+
+import { Acessory } from '../../components/Acessory';
 import { BackButton } from '../../components/BackButton';
 import { ImageSilder } from '../../components/ImageSilder';
+
+import  speedSvg  from '../../assets/speed.svg';
+import  acelerationSvg  from '../../assets/acceleration.svg';
+import  forceSvg  from '../../assets/force.svg';
+import  gasolineSvg  from '../../assets/gasoline.svg';
+import  exchangeSvg  from '../../assets/exchange.svg';
+import  peopleSvg  from '../../assets/people.svg';
+
 
 import {
  Container,
@@ -14,8 +24,10 @@ import {
  Rent,
  Period,
  Price,
- About
+ About,
+ Acessories
 } from './styles';
+
 
 export function CarDetails(){
 return (
@@ -43,6 +55,16 @@ return (
               <Price>R$ 580</Price>
             </Rent>
         </Details>
+
+        <Acessories>
+          <Acessory name="380Km/h" icon={speedSvg} />
+          <Acessory name="3.2s" icon={acelerationSvg} />
+          <Acessory name="800 HP" icon={forceSvg} />
+          <Acessory name="Gasolina" icon={gasolineSvg} />
+          <Acessory name="Auto" icon={exchangeSvg} />
+          <Acessory name="2 Pessoas" icon={peopleSvg} />
+
+        </Acessories>
 
 
         <About>
