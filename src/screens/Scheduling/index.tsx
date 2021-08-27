@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components';
 
 import { BackButton } from '../../components/BackButton';
 import { Button } from '../../components/Button';
+import { Calendar } from '../../components/Calendar';
 
 import ArrorSvg from '../../assets/arrow.svg';
 
@@ -61,6 +62,8 @@ return (
         </Header>
 
         <Content>
+
+            <Calendar />
 
         </Content>
 
