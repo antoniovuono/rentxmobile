@@ -71,7 +71,7 @@ export const DateValue = styled.Text<DateValueProps>`
 
     text-transform: uppercase;
 
-    ${({ selected, theme }) => !selected && css`
+    ${({ selected  }) => !selected && css`
     
 
         border-bottom-width: 1px;
