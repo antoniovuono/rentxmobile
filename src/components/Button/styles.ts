@@ -23,4 +23,5 @@ export const Title = styled.Text`
     color: ${({theme}) => theme.colors.shape};
     font-size: ${RFValue(15)}px;
 
+    color: ${({theme}) => theme.colors.background_secondary};
 `;
