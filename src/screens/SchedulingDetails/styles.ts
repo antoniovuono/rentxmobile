@@ -188,7 +188,7 @@ export const RentalPriceQuota = styled.Text`
     font-family: ${({theme}) => theme.fonts.primary_500};
     font-size: ${RFValue(15)}px;
     color: ${({theme}) => theme.colors.title};
-    text-transform: uppercase;  
+  
 
 `;
 
