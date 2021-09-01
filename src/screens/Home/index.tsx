@@ -88,7 +88,7 @@ return (
     keyExtractor={item => item.id}
     renderItem={({item}) => <Cars data={item} onPress={handleCarDetails} />}
     
-    /> 
+      /> 
     } 
 
 
