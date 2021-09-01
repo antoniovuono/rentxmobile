@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { api } from '../../services/api';
 
 import Logo from '../../assets/logo.svg';
 import { Cars } from '../../components/Cars';
@@ -17,10 +18,6 @@ import {
 export function Home(){
 const navigation = useNavigation();
 
-function handleCarDetails() {
-  navigation.navigate("CarDetails");
-}
-
 const carData ={
   brand: 'audi',
   name: 'RS 5 Coupé',
@@ -30,6 +27,23 @@ const carData ={
   },
   thumbnail: 'https://www.pngkey.com/png/full/383-3833840_rs-5-coup-price-from-audi-rs5-png.png'
 }
+
+function handleCarDetails() {
+  navigation.navigate("CarDetails");
+}
+
+useEffect(() => {
+
+  async function fetchCars() {
+  const  response = await api.get('/cars');
+  console.log(response);
+  }
+  
+  fetchCars();
+
+}, []);
+
+
 
 
 return (
