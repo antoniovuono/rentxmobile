@@ -23,18 +23,9 @@ const [ loading, setIsLoading ] = useState(true);
 
 const navigation = useNavigation();
 
-const carData ={
-  brand: 'audi',
-  name: 'RS 5 Coupé',
-  rent: {
-    period: 'Ao dia',
-    price: 120
-  },
-  thumbnail: 'https://www.pngkey.com/png/full/383-3833840_rs-5-coup-price-from-audi-rs5-png.png'
-}
 
-function handleCarDetails() {
-  navigation.navigate("CarDetails");
+function handleCarDetails(car: CarDTO) {
+  navigation.navigate("CarDetails", {car});
 }
 
 useEffect(() => {
@@ -86,7 +77,8 @@ return (
 
     data={cars}
     keyExtractor={item => item.id}
-    renderItem={({item}) => <Cars data={item} onPress={handleCarDetails} />}
+    renderItem={({item}) => 
+      <Cars data={item} onPress={() => handleCarDetails(item)} />}
     
       /> 
     } 
