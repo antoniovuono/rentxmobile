@@ -40,12 +40,16 @@ function handleConfirmRental() {
   navigation.navigate("Scheduling");
 }
 
+function handleGoBack() {
+  navigation.goBack();
+}
+
 return (
   <Container> 
     
     <Header>
 
-      <BackButton onPress={({}) => {}} />
+      <BackButton onPress={handleGoBack} />
 
     </Header>
 
