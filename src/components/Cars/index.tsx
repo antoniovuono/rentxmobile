@@ -5,6 +5,8 @@ import { CarDTO } from '../../dtos/CarDTO';
 
 import GasolineSvg from "../../assets/gasoline.svg";
 
+import { getAccesoryIcon } from '../../utils/getAccesoryIcon';
+
 import {
  Container,
  Details,
@@ -19,11 +21,14 @@ import {
 } from './styles';
 
 
+
 interface Props extends RectButtonProps {
    data: CarDTO;
 }
 
 export function Cars({ data, ...rest }: Props){
+const MotorIcon = getAccesoryIcon(data.fuel_type);
+
 return (
   <Container {...rest}> 
 
@@ -39,7 +44,7 @@ return (
                 </Rent>
 
                 <Type>
-                    <GasolineSvg />
+                    <MotorIcon />
                 </Type>
             </About>
 

@@ -6,12 +6,7 @@ import { BackButton } from '../../components/BackButton';
 import { ImageSilder } from '../../components/ImageSilder';
 import { Button } from '../../components/Button';
 
-import  speedSvg  from '../../assets/speed.svg';
-import  acelerationSvg  from '../../assets/acceleration.svg';
-import  forceSvg  from '../../assets/force.svg';
-import  gasolineSvg  from '../../assets/gasoline.svg';
-import  exchangeSvg  from '../../assets/exchange.svg';
-import  peopleSvg  from '../../assets/people.svg';
+import { getAccesoryIcon } from '../../utils/getAccesoryIcon';
 
 import { CarDTO } from '../../dtos/CarDTO';
 
@@ -83,7 +78,7 @@ return (
 
               key={accessory.type}
               name={accessory.name}
-              icon={speedSvg}
+              icon={getAccesoryIcon(accessory.type)}
               
               />
             ))
