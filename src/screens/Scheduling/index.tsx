@@ -3,6 +3,9 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 import { useTheme } from 'styled-components';
 
+import { format } from 'date-fns';
+import { getPlatformDate } from '../../utils/getPlataformDate';
+
 import { BackButton } from '../../components/BackButton';
 import { Button } from '../../components/Button';
 import { Calendar, DayProps, generateInterval, MarkedDateProps } from '../../components/Calendar';
@@ -21,9 +24,17 @@ import {
  Footer,
 } from './styles';
 
+interface RentalPeriod {
+    start: number;
+    startFormatted: string;
+    end: number;
+    endFormatted: string;
+}
+
 export function Scheduling(){
 const [lastSelectedDate, setLastSelectedDate] = useState<DayProps>({} as DayProps);
 const [markedDate, setMarkedDate] = useState<MarkedDateProps>({} as MarkedDateProps);
+const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>({} as RentalPeriod);
 
 const theme = useTheme();
 const navigation = useNavigation();
@@ -48,6 +59,16 @@ function handleChangeDate(date: DayProps) {
     setLastSelectedDate(end);
     const interval = generateInterval(start, end);
     setMarkedDate(interval);
+
+    const firstDate = Object.keys(interval)[0];
+    const endDate = Object.keys(interval)[Object.keys(interval).length - 1];
+
+    setRentalPeriod({
+        start: start.timestamp,
+        end: end.timestamp,
+        startFormatted: format(getPlatformDate(new Date(firstDate)), 'dd/MM/yyyy'),
+        endFormatted: format(getPlatformDate(new Date(endDate)), 'dd/MM/yyyy'),
+    });
 }
 
 return (
@@ -74,14 +95,14 @@ return (
             <RentalPeriod>
                 <DateInfo>
                     <DateTitle>De</DateTitle>
-                    <DateValue selected={false}></DateValue>
+                    <DateValue selected={false}>{rentalPeriod.startFormatted}</DateValue>
                 </DateInfo>
 
                 <ArrorSvg />
 
                 <DateInfo>
                     <DateTitle>Até</DateTitle>
-                    <DateValue selected={false}>18/06/2021</DateValue>
+                    <DateValue selected={false}>{rentalPeriod.endFormatted}</DateValue>
                 </DateInfo>
             </RentalPeriod>            
 
