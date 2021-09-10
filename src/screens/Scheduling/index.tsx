@@ -56,7 +56,7 @@ function handleConfirmRental() {
     } else {
         navigation.navigate("SchedulingDetails", {
             car,
-            date: Object.keys(markedDate)
+            dates: Object.keys(markedDate)
         });
     }
     
