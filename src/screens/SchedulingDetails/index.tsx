@@ -4,6 +4,9 @@ import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
 
+import { api } from '../../services/api';
+import { Alert } from 'react-native';
+
 import { format } from 'date-fns';
 import { CarDTO } from '../../dtos/CarDTO';
 import { getPlatformDate } from '../../utils/getPlataformDate';
@@ -70,8 +73,21 @@ function handleGoBack(){
   navigation.goBack();
 }
 
-function handleConfirmRental() {
-  navigation.navigate("SchedulingComplete");
+async function handleConfirmRental() {
+
+  const schedulesByCar = await api.get(`/schedules_bycars/${car.id}`);
+
+  const unavailable_dates = [
+    ...schedulesByCar.data.unavailable_dates,
+    ...dates,
+  ];
+
+  await api.put(`/schedules_bycars/${car.id}`, {
+    id: car.id,
+    unavailable_dates
+  })
+  .then(() => navigation.navigate("SchedulingComplete"))
+  .catch(() => Alert.alert('Não foi possível confirmar o agendamento'));
 }
 
 useEffect(() => {
