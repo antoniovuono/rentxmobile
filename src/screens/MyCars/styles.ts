@@ -4,7 +4,8 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
    flex: 1;
-   background-color: ${({theme}) => theme.colors.background_secondary};
+   align-items: center;
+   background-color: ${({theme}) => theme.colors.background_primary};
 `;
 
 export const Header = styled.View`
@@ -37,5 +38,41 @@ export const SubTitle = styled.Text`
 
     margin-top: 24px;
 
+
+`;
+
+export const Content = styled.View`
+
+   width: 100%;
+   flex: 1;
+   padding: 0 16px;
+
+`;
+
+export const Appointments = styled.View`
+
+      width: 100%;
+      flex-direction: row;
+
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 24px 0;
+
+`;
+
+export const AppointmentsTitle = styled.Text`
+
+    color: ${({theme}) => theme.colors.text};
+    font-family: ${({theme}) => theme.fonts.secondary_400};
+    font-size: ${RFValue(15)}px;
+
+`;
+
+export const AppointmentsQuantity = styled.Text`
+
+   color: ${({theme}) => theme.colors.title};
+    font-family: ${({theme}) => theme.fonts.secondary_500};
+    font-size: ${RFValue(15)}px;
 
 `;
