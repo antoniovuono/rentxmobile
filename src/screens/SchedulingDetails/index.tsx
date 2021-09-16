@@ -83,7 +83,7 @@ async function handleConfirmRental() {
   ];
 
   await api.post('schedules_byuser', {
-    user_id: 1,
+    user_id: 2,
     car
   });
 
