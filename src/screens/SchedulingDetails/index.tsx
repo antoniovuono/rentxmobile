@@ -75,6 +75,8 @@ function handleGoBack(){
 
 async function handleConfirmRental() {
 
+  setLoading(true);
+
   const schedulesByCar = await api.get(`/schedules_bycars/${car.id}`);
 
   const unavailable_dates = [
@@ -95,9 +97,9 @@ async function handleConfirmRental() {
   })
   .then(() => navigation.navigate("SchedulingComplete"))
   .catch(() => {
-      Alert.alert('Não foi possível confirmar o agendamento')
+      Alert.alert('Não foi possível confirmar o agendamento');
       setLoading(false);
- })
+ });
 }
 
 useEffect(() => {
