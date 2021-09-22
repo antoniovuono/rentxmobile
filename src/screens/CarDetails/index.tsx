@@ -99,6 +99,7 @@ return (
     }}
     showsVerticalScrollIndicator={false}
     onScroll={scrollHandler}
+    scrollEventThrottle={16}
     >
 
         <Details>
@@ -131,6 +132,9 @@ return (
         </Accessories>
 
 
+        <About> {car.about} </About>
+        <About> {car.about} </About>
+        <About> {car.about} </About>
         <About> {car.about} </About>
 
     </Animated.ScrollView>
