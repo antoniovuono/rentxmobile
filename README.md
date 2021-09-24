@@ -4,8 +4,7 @@
 <h3>Design:</h3>
 <link> https://www.figma.com/file/ueGmRhQQg1rPMOewMUUJS7/RentX-Ignite?node-id=0%3A1 </link>
 
-
-
+<img width="854" alt="Captura de Tela 2021-09-24 às 12 12 31" src="https://user-images.githubusercontent.com/7297243/134698679-2156f73b-203c-428e-8487-5b0705e8f19f.png">
 
 <h2>TECNOLOGIAS UTILIZADAS:</h2>
 <ul>
@@ -14,10 +13,7 @@
       <li>Styled-components</li>
       <li>Json-server</li>
       <li>Axios</li>
-      <li>AsyncStorage</li>
-      <li>Login Social (Apple e Google)</li>
-      
-
+      <li>Animations</li>  
 </ul>
 
 <h2>Rodando a aplicação:</h2>
@@ -25,7 +21,7 @@
 
    <ul> 
     <li><b>Clonar o repositório</li>
-    <code> git clone https://github.com/antoniovuono/marvelstudios.git </code>
+    <code> git clone https://github.com/antoniovuono/rentxmobile.git </code>
    </ul>
    <ul> 
     <li><b>Instalar bibliotecas do projeto utilizando o comando:</li></b>
