@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { BackButton } from '../../components/BackButton';
 import { Cars } from '../../components/Cars';
 import { Load } from '../../components/Load';
+import { LoadAnimation } from '../../components/LoadAnimation'
 
 import { useNavigation } from '@react-navigation/native';
 import { CarDTO } from '../../dtos/CarDTO';
@@ -92,7 +93,7 @@ return (
             </SubTitle>
         </Header>
 
-      { loading ? <Load /> : 
+      { loading ? <LoadAnimation /> : 
       <Content>
         <Appointments>
           <AppointmentsTitle>Agendamentos feitos</AppointmentsTitle>

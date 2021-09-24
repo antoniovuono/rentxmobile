@@ -20,6 +20,7 @@ const ButtonAnimated = Animated.createAnimatedComponent(RectButton);
 import Logo from '../../assets/logo.svg';
 import { Cars } from '../../components/Cars';
 import { Load } from '../../components/Load';
+import { LoadAnimation } from '../../components/LoadAnimation';
 
 import {
  Container,
@@ -124,7 +125,7 @@ return (
       </HeaderContent>
     </Header>
 
-    { loading ? <Load /> : 
+    { loading ? <LoadAnimation /> : 
 
     <CarsList
 
