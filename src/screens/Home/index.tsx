@@ -114,9 +114,13 @@ return (
       height={RFValue(12)}
       />
 
+      {
+      !loading &&
       <TotalCars>
        Total de {cars.length} carros
       </TotalCars>
+      }
+
       </HeaderContent>
     </Header>
 
