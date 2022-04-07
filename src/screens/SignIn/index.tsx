@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from "react-native";
+import { StatusBar, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from "react-native";
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
@@ -17,6 +17,8 @@ import {
 
 export function SignIn(){
 return (
+  <KeyboardAvoidingView behavior='position' enabled>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
   <Container> 
       <StatusBar 
         barStyle="dark-content"
@@ -64,5 +66,7 @@ return (
           />
       </Footer>
   </Container>
+  </TouchableWithoutFeedback>
+  </KeyboardAvoidingView>
   );
 }

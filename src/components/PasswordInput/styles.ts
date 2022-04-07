@@ -13,7 +13,6 @@ export const IconContainer = styled.View`
     justify-content: center;
     align-items: center;
     background-color: ${({theme}) => theme.colors.background_secondary};
-
     margin-right: 2px;
 
 `;
@@ -28,11 +27,10 @@ export const InputText = styled(TextInput)`
 `;
 
 export const ChangePasswordVisibilityButton = styled(BorderlessButton)`
-     width: 55px;
+    width: 55px;
     height: 56px;
     justify-content: center;
     align-items: center;
     background-color: ${({theme}) => theme.colors.background_secondary};
-
     margin-right: 2px;
 `;
