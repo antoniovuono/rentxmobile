@@ -27,7 +27,7 @@ function handleInputFocus() {
 
 function handleInputBlur() {
     setIsFocused(false);
-    setIsFilled(!!true);
+    setIsFilled(!!value);
 }
 
 return (
@@ -40,7 +40,6 @@ return (
             />
       </IconContainer>
  
-
       <InputText {...rest} onFocus={handleInputFocus} onBlur={handleInputBlur} />
   </Container>
   );
