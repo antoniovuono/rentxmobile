@@ -35,8 +35,8 @@ function handleInputBlur() {
 
 const theme = useTheme();
 return (
-  <Container isFocused={isFocused}> 
-      <IconContainer>
+  <Container> 
+      <IconContainer isFocused={isFocused}>
             <Feather 
                 name={iconName}
                 size={24}
@@ -44,9 +44,17 @@ return (
             
             />
       </IconContainer>
-      <InputText secureTextEntry={isPasswordVisible} {...rest} onFocus={handleInputFocus} onBlur={handleInputBlur} />
+      <InputText 
+          secureTextEntry={isPasswordVisible} 
+          {...rest} onFocus={handleInputFocus} 
+          onBlur={handleInputBlur} 
+          isFocused={isFocused}
+     />
 
-      <ChangePasswordVisibilityButton activeOpacity={0.7} onPress={handlePasswordVisibility}>
+      <ChangePasswordVisibilityButton 
+            activeOpacity={0.7} 
+            onPress={handlePasswordVisibility}  
+          >
       <Feather 
                 name={isPasswordVisible ? 'eye' : 'eye-off'}
                 size={24}

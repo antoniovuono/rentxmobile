@@ -31,8 +31,8 @@ function handleInputBlur() {
 }
 
 return (
-  <Container isFocused={isFocused}> 
-      <IconContainer>
+  <Container> 
+      <IconContainer isFocused={isFocused}>
             <Feather 
                 name={iconName}
                 size={24}
@@ -40,7 +40,11 @@ return (
             />
       </IconContainer>
  
-      <InputText {...rest} onFocus={handleInputFocus} onBlur={handleInputBlur} />
+      <InputText 
+            {...rest} onFocus={handleInputFocus} 
+            onBlur={handleInputBlur}  
+            isFocused={isFocused} 
+    />
   </Container>
   );
 }
