@@ -38,7 +38,7 @@ return (
                 name={isPasswordVisible ? 'eye' : 'eye-off'}
                 size={24}
                 color={theme.colors.text_detail}
-            />
+      />
       </ChangePasswordVisibilityButton>
   </Container>
   );
