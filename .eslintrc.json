@@ -23,6 +23,7 @@
         "prettier"
     ],
     "rules": {
+        "react/jsx-no-bind": "off",
         "react/no-unstable-nested-components": "off",
         "import/no-extraneous-dependencies": "off",
         "react/jsx-no-constructed-context-values": "off",
