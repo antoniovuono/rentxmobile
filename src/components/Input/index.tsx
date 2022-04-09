@@ -41,8 +41,8 @@ export function Input({ iconName, value, ...rest }: InputProps) {
 
             <InputText
                 {...rest}
-                onFocus={() => handleInputFocus}
-                onBlur={() => handleInputBlur}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
                 isFocused={isFocused}
             />
         </Container>

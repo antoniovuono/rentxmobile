@@ -17,6 +17,8 @@ export function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    function handleSignIn() {}
+
     return (
         <KeyboardAvoidingView behavior="position" enabled>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -65,7 +67,7 @@ export function SignIn() {
 
                         <Button
                             title="Criar conta gratuita"
-                            onPress={() => {}}
+                            onPress={handleSignIn}
                             enabled={false}
                             loading={false}
                             color={theme.colors.background_secondary}
