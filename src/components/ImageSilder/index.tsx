@@ -1,12 +1,12 @@
-import React,  { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { FlatList, ViewToken } from 'react-native';
 
 import {
- Container,
- ImageIndexes,
- ImageIndex,
- CarImageWrapper,
- CarImage,
+    Container,
+    ImageIndexes,
+    ImageIndex,
+    CarImageWrapper,
+    CarImage,
 } from './styles';
 
 interface Props {
@@ -14,49 +14,41 @@ interface Props {
 }
 
 interface ChangeImageProps {
-  viewableItems: ViewToken[];
-  changed: ViewToken[];
+    viewableItems: ViewToken[];
+    changed: ViewToken[];
 }
 
-export function ImageSilder({imagesUrl}: Props){
-const [imageIndex, setImageIndex] = useState(0);
+export function ImageSilder({ imagesUrl }: Props) {
+    const [imageIndex, setImageIndex] = useState(0);
 
-const indexChanged = useRef((info: ChangeImageProps) => {
-    const index = info.viewableItems[0].index!;
-    setImageIndex(index);
-});
+    const indexChanged = useRef((info: ChangeImageProps) => {
+        const index = info.viewableItems[0].index!;
+        setImageIndex(index);
+    });
 
-return (
-  <Container> 
-      <ImageIndexes>
-        {    
-          imagesUrl.map((_, index) => (
-               <ImageIndex 
-                  key={String(index)}
-                  active={index === imageIndex} 
-               />
-          ))
-        }
-      </ImageIndexes>
+    return (
+        <Container>
+            <ImageIndexes>
+                {imagesUrl.map((_, index) => (
+                    <ImageIndex
+                        key={String(index)}
+                        active={index === imageIndex}
+                    />
+                ))}
+            </ImageIndexes>
 
-   
-        <FlatList
-            data={imagesUrl}
-            keyExtractor={key => key}
-            renderItem={({ item }) => (
-            <CarImageWrapper>
-                  <CarImage 
-                  source={{ uri: item }}
-                  resizeMode="contain"
-                  />
-            </CarImageWrapper>
-            )}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            onViewableItemsChanged={indexChanged.current}
-        />
-
-
-  </Container>
-  );
+            <FlatList
+                data={imagesUrl}
+                keyExtractor={key => key}
+                renderItem={({ item }) => (
+                    <CarImageWrapper>
+                        <CarImage source={{ uri: item }} resizeMode="contain" />
+                    </CarImageWrapper>
+                )}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                onViewableItemsChanged={indexChanged.current}
+            />
+        </Container>
+    );
 }
