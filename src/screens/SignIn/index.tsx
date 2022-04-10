@@ -6,6 +6,7 @@ import {
     Keyboard,
     Alert,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import * as Yup from 'yup';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
@@ -17,6 +18,8 @@ import { Container, Header, SubTitle, Title, Footer, Form } from './styles';
 export function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigation = useNavigation();
 
     // eslint-disable-next-line consistent-return
     async function handleSignIn() {
@@ -40,6 +43,10 @@ export function SignIn() {
                 'Ocorreu um erro ao fazer login, verifique as credenciais ',
             );
         }
+    }
+
+    function handleNewAccount() {
+        navigation.navigate('FirstStep');
     }
 
     return (
@@ -89,8 +96,7 @@ export function SignIn() {
 
                         <Button
                             title="Criar conta gratuita"
-                            onPress={() => {}}
-                            enabled={false}
+                            onPress={handleNewAccount}
                             loading={false}
                             color={theme.colors.background_secondary}
                             light
