@@ -4,9 +4,8 @@ import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
 
-import { Alert } from 'react-native';
-
 import { format } from 'date-fns';
+import Toast from 'react-native-toast-message';
 import { api } from '../../services/api';
 import { CarDTO } from '../../dtos/CarDTO';
 import { getPlatformDate } from '../../utils/getPlataformDate';
@@ -101,7 +100,11 @@ export function SchedulingDetails() {
             })
             .then(() => navigation.navigate('SchedulingComplete'))
             .catch(() => {
-                Alert.alert('Não foi possível confirmar o agendamento');
+                Toast.show({
+                    type: 'error',
+                    text1: 'Erro ao agendar',
+                    text2: 'Não foi possível confirmar o agendamento!',
+                });
                 setLoading(false);
             });
     }

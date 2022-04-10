@@ -4,15 +4,14 @@ import {
     KeyboardAvoidingView,
     TouchableWithoutFeedback,
     Keyboard,
-    Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as Yup from 'yup';
+import Toast from 'react-native-toast-message';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { PasswordInput } from '../../components/PasswordInput';
 import theme from '../../styles/theme';
-
 import { Container, Header, SubTitle, Title, Footer, Form } from './styles';
 
 export function SignIn() {
@@ -32,16 +31,26 @@ export function SignIn() {
             });
 
             await schema.validate({ email, password });
-            Alert.alert('Deu certo!');
+
+            Toast.show({
+                type: 'success',
+                text1: 'Sucesso',
+                text2: 'Autenticaçāo foi feita com sucesso!',
+            });
         } catch (error) {
             if (error instanceof Yup.ValidationError) {
-                return Alert.alert('Opa', error.message);
+                return Toast.show({
+                    type: 'error',
+                    text1: 'Erro ao autenticar',
+                    text2: error.message,
+                });
             }
 
-            Alert.alert(
-                'Erro ao autenticar',
-                'Ocorreu um erro ao fazer login, verifique as credenciais ',
-            );
+            Toast.show({
+                type: 'error',
+                text1: 'Erro ao autenticar',
+                text2: 'Ocorreu um erro ao fazer login, verifique as credenciais',
+            });
         }
     }
 

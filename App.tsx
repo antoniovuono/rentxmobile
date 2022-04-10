@@ -1,47 +1,39 @@
 import React from 'react';
 import AppLoading from 'expo-app-loading';
 
-import { ThemeProvider } from "styled-components";
-import theme from './src/styles/theme';
-
-import { Routes } from './src/routes/';
-
-import { Home } from './src/screens/Home';
-import { CarDetails } from './src/screens/CarDetails';
-import { Scheduling } from './src/screens/Scheduling';
-import { SchedulingDetails } from './src/screens/SchedulingDetails';
-import { SchedulingComplete  } from './src/screens/SchedulingComplete';
-
-import { 
-  useFonts, 
-  Inter_400Regular,
-  Inter_500Medium
-} from '@expo-google-fonts/inter';
+import { ThemeProvider } from 'styled-components';
 import {
-  Archivo_400Regular,
-  Archivo_500Medium,
-  Archivo_600SemiBold
- } from '@expo-google-fonts/archivo';
-
-export default function App() {
-  const [fontsLoaded] = useFonts({
+    useFonts,
     Inter_400Regular,
     Inter_500Medium,
+} from '@expo-google-fonts/inter';
+import {
     Archivo_400Regular,
     Archivo_500Medium,
-    Archivo_600SemiBold
-  });
+    Archivo_600SemiBold,
+} from '@expo-google-fonts/archivo';
+import Toast from 'react-native-toast-message';
+import theme from './src/styles/theme';
 
-  if(!fontsLoaded) {
-    return <AppLoading />
-  }
+import { Routes } from './src/routes';
 
-  return (
-    <ThemeProvider theme={theme}>
+export default function App() {
+    const [fontsLoaded] = useFonts({
+        Inter_400Regular,
+        Inter_500Medium,
+        Archivo_400Regular,
+        Archivo_500Medium,
+        Archivo_600SemiBold,
+    });
 
-    <Routes />
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    }
 
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <Routes />
+            <Toast />
+        </ThemeProvider>
+    );
 }
-
