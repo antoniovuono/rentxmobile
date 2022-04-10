@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'styled-components';
 import {
     KeyboardAvoidingView,
     Keyboard,
@@ -16,18 +17,15 @@ import {
     FormTitle,
 } from './styles';
 import { BackButton } from '../../../components/BackButton';
-import { Input } from '../../../components/Input';
 import { Button } from '../../../components/Button';
+import { PasswordInput } from '../../../components/PasswordInput';
 
-export function FirstStep() {
+export function SecondStep() {
     const navigation = useNavigation();
+    const theme = useTheme();
 
     function handleGoBack() {
         navigation.goBack();
-    }
-
-    function handleNextStep() {
-        navigation.navigate('SecondStep');
     }
 
     return (
@@ -49,21 +47,15 @@ export function FirstStep() {
                     </SubTitle>
 
                     <Form>
-                        <FormTitle>1. Dados</FormTitle>
-                        <Input iconName="user" placeholder="Nome" />
-                        <Input
-                            iconName="mail"
-                            placeholder="E-mail"
-                            keyboardType="email-address"
-                        />
-                        <Input
-                            iconName="credit-card"
-                            placeholder="CNH"
-                            keyboardType="numeric"
+                        <FormTitle>1. Senha</FormTitle>
+                        <PasswordInput iconName="lock" placeholder="Senha" />
+                        <PasswordInput
+                            iconName="lock"
+                            placeholder="Repetir senha"
                         />
                     </Form>
 
-                    <Button title="Próximo" onPress={handleNextStep} />
+                    <Button title="Cadastrar" color={theme.colors.success} />
                 </Container>
             </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
