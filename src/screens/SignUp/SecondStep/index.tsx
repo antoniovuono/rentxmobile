@@ -20,6 +20,7 @@ import {
 import { BackButton } from '../../../components/BackButton';
 import { Button } from '../../../components/Button';
 import { PasswordInput } from '../../../components/PasswordInput';
+import { Confirmation } from '../../Confirmation';
 
 interface IUserParams {
     user: {
@@ -38,8 +39,6 @@ export function SecondStep() {
     const route = useRoute();
 
     const { user } = route.params as IUserParams;
-
-    console.log(user);
 
     function handleGoBack() {
         navigation.goBack();
@@ -63,6 +62,12 @@ export function SecondStep() {
         }
 
         // Enviar para API e cadastrar !
+
+        navigation.navigate('Confirmation', {
+            nextScreenRoute: 'SignIn',
+            title: 'Conta criada!',
+            message: `Agora é só fazer login\ne aproveitar`,
+        });
     }
 
     return (
