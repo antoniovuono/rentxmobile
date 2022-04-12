@@ -88,6 +88,7 @@ export function FirstStep() {
                             placeholder="E-mail"
                             keyboardType="email-address"
                             onChangeText={setEmail}
+                            autoCapitalize="none"
                         />
                         <Input
                             iconName="credit-card"
