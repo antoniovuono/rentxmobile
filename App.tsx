@@ -1,6 +1,5 @@
 import React from 'react';
 import AppLoading from 'expo-app-loading';
-
 import { ThemeProvider } from 'styled-components';
 import {
     useFonts,
@@ -14,7 +13,7 @@ import {
 } from '@expo-google-fonts/archivo';
 import Toast from 'react-native-toast-message';
 import theme from './src/styles/theme';
-
+import { AppProvider } from './src/hooks';
 import { Routes } from './src/routes';
 
 export default function App() {
@@ -32,8 +31,10 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Routes />
-            <Toast />
+            <AppProvider>
+                <Routes />
+                <Toast />
+            </AppProvider>
         </ThemeProvider>
     );
 }
