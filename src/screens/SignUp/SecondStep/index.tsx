@@ -21,6 +21,7 @@ import { BackButton } from '../../../components/BackButton';
 import { Button } from '../../../components/Button';
 import { PasswordInput } from '../../../components/PasswordInput';
 import { Confirmation } from '../../Confirmation';
+import { api } from '../../../services/api';
 
 interface IUserParams {
     user: {
@@ -44,7 +45,7 @@ export function SecondStep() {
         navigation.goBack();
     }
 
-    function handleRegister() {
+    async function handleRegister() {
         if (!password || !passwordConfirm) {
             return Toast.show({
                 type: 'error',
@@ -61,13 +62,27 @@ export function SecondStep() {
             });
         }
 
-        // Enviar para API e cadastrar !
-
-        navigation.navigate('Confirmation', {
-            nextScreenRoute: 'SignIn',
-            title: 'Conta criada!',
-            message: `Agora é só fazer login\ne aproveitar`,
-        });
+        await api
+            .post('/users', {
+                name: user.name,
+                email: user.email,
+                driver_license: user.driverLicense,
+                password,
+            })
+            .then(() => {
+                navigation.navigate('Confirmation', {
+                    nextScreenRoute: 'SignIn',
+                    title: 'Conta criada!',
+                    message: `Agora é só fazer login\ne aproveitar`,
+                });
+            })
+            .catch(() => {
+                Toast.show({
+                    type: 'error',
+                    text1: 'Opa',
+                    text2: 'Nāo foi possível cadastrar o usuário',
+                });
+            });
     }
 
     return (
