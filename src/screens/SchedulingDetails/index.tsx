@@ -48,14 +48,14 @@ interface Params {
     dates: string[];
 }
 
-interface RentalPeriod {
+interface RentalsPeriod {
     start: string;
     end: string;
 }
 
 export function SchedulingDetails() {
     const [loading, setLoading] = useState(false);
-    const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>(
+    const [rentalPeriod, setRentalPeriod] = useState<RentalsPeriod>(
         {} as RentalPeriod,
     );
 
@@ -64,7 +64,7 @@ export function SchedulingDetails() {
     const route = useRoute();
     const { car, dates } = route.params as Params;
 
-    const rentalTotal = Number(dates.length * car.rent.price);
+    const rentalTotal = Number(dates.length * car.price);
 
     function handleGoBack() {
         navigation.goBack();
@@ -151,8 +151,8 @@ export function SchedulingDetails() {
                     </Description>
 
                     <Rent>
-                        <Period>{car.rent.period}</Period>
-                        <Price>R$ {car.rent.price}</Price>
+                        <Period>{car.period}</Period>
+                        <Price>R$ {car.price}</Price>
                     </Rent>
                 </Details>
 
@@ -197,7 +197,7 @@ export function SchedulingDetails() {
 
                     <RentalPriceDetails>
                         <RentalPriceQuota>
-                            R$ {car.rent.price} x{dates.length} diárias
+                            R$ {car.price} x{dates.length} diárias
                         </RentalPriceQuota>
                         <RentalPriceTotal>R$ {rentalTotal}</RentalPriceTotal>
                     </RentalPriceDetails>
